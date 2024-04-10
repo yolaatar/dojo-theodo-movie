@@ -1,0 +1,31 @@
+{
+  "name": "Dojo Theodo Nantes - Site web de suggestion de films",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["backend/.env", "README.md"]
+    },
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "postman.postman-for-vscode",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postAttachCommand": "cd frontend && npm install && cd ../backend && npm install",
+  "forwardPorts": [8000, 3000],
+  "portsAttributes": {
+    "8000": {
+      "label": "API - Movies",
+      "onAutoForward": "ignore"
+    },
+    "3000": {
+      "label": "Webapp - Site web de suggestion de films",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}
