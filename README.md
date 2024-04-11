@@ -5,3 +5,8 @@ Après avoir définis la variable d'environnement "API_KEY", lancer cette comman
 ```bash
 (cd frontend && REACT_APP_CODESPACES=$CODESPACES REACT_APP_CODESPACE_NAME=$CODESPACE_NAME npm run start) & (cd backend && npm run start)
 ```
+
+ROOKIE: Movie Card
+PRO: Movie List + Infinite scroll
+EXPERT: Movie Detail
+HACKER: Favorie

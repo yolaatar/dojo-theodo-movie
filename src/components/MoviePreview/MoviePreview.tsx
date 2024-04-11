@@ -1,15 +1,29 @@
+import { POSTER_URL_PREFIX } from "../../App";
 import { Movie } from "../../models";
-import styles from "./MovieCard.module.css";
+import styles from "./MoviePreview.module.css";
 
-const MovieCard = ({ movie }: { movie: Movie }) => {
-  const posterUrlPrefix = "https://image.tmdb.org/t/p/original/";
+const MoviePreview = ({
+  movie,
+  isFavorite,
+}: {
+  movie: Movie;
+  isFavorite: boolean;
+}) => {
   const rating = Math.floor((movie.vote_average * 5) / 10);
+
+  const goToMovieDetails = () => {
+    window.location.href = `/movie/${movie.id}`;
+  };
+
   return (
-    <div className={styles.movieCard}>
+    <div
+      className={`${styles.movieCard} ${isFavorite ? styles.isFavorite : ""}`}
+      onClick={goToMovieDetails}
+    >
       <div
         className={styles.moviePoster}
         style={{
-          backgroundImage: `url(${posterUrlPrefix + movie.poster_path})`,
+          backgroundImage: `url(${POSTER_URL_PREFIX + movie.poster_path})`,
         }}
       ></div>
       <div className={styles.movieInfo}>
@@ -31,4 +45,4 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
   );
 };
 
-export default MovieCard;
+export default MoviePreview;

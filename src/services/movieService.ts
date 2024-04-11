@@ -9,7 +9,7 @@ type TMDBResponse<T> = {
 };
 
 const BASE_URL_API = "https://api.themoviedb.org/3";
-const API_KEY = "522d421671cf75c2cba341597d86403a";
+const API_KEY = "xxx";
 
 const DEFAULT_SEARCH_PARAMS = {
   api_key: API_KEY,
@@ -30,44 +30,37 @@ const get = async <T>(url: string) => {
   return response.data.results;
 };
 
-export const getPopularMovies = async (page: number): Promise<Movie[]> => {
+export const getMovies = async (
+  page: number,
+  genres: number[] = []
+): Promise<Movie[]> => {
   return await get<Movie>(
-    generateTMDBUrl("/movie/popular", {
+    generateTMDBUrl("/discover/movie", {
       page: page.toString(),
+      with_genres: genres.join(","),
     })
   );
 };
 
-export const getFavoriteMoviesIds = async () => {
-  const response = await axios.get<number[]>(
-    `${BASE_URL_API}/favorite-movies-id`
+export const getMovieById = async (movieId: string) => {
+  const response = await axios.get<Movie>(
+    generateTMDBUrl(`/movie/${movieId}`, {})
   );
   return response.data;
-};
-
-export const getFavoriteMovies = async () => {
-  const response = await axios.get<Movie[]>(`${BASE_URL_API}/favorite-movies`);
-
-  return response.data;
-};
-
-export const getMovieById = async (movieId: string) => {
-  const response = await axios.get<Movie>(`${BASE_URL_API}/movies/${movieId}`);
-  return response.data;
-};
-
-export const toggleMovieFavoriteStatus = async (movieId: string) => {
-  await axios.post(`${BASE_URL_API}/toggle-favorite/${movieId}`);
 };
 
 export const getGenres = async () => {
-  const response = await axios.get<Genre[]>(`${BASE_URL_API}/genres`);
-  return response.data;
+  const response = await axios.get<{
+    genres: Genre[];
+  }>(generateTMDBUrl(`/genre/movie/list`, {}));
+  return response.data.genres;
 };
 
-export const searchMovies = async (searchText: string, page: number) => {
-  const response = await axios.get<Movie[]>(
-    `${BASE_URL_API}/search?pageNumber=${page}&searchText=${searchText}`
+export const searchMovies = async (page: number, query: string) => {
+  return await get<Movie>(
+    generateTMDBUrl("/search/movie", {
+      query,
+      page: page.toString(),
+    })
   );
-  return response.data;
 };

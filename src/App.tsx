@@ -1,11 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar/Navbar";
-import { MovieList } from "./components/MovieList/MovieList";
 
-import MoviePage from "./components/MoviePage/MoviePage";
-import { Favorites } from "./components/Favorites/Favorites";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { MovieProvider } from "./context/MovieContext";
+import { Header } from "./components/Header/Header";
+import { MovieCatalog } from "./components/MovieCatalog/MovieCatalog";
+import { FavoriteMovies } from "./components/FavoriteMovies/FavoriteMovies";
+import MovieDetails from "./components/MovieDetails/MovieDetails";
+
+export const POSTER_URL_PREFIX = "https://image.tmdb.org/t/p/original/";
 
 function App() {
   const queryClient = new QueryClient({
@@ -18,12 +21,14 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<MovieList />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/movies/:id" element={<MoviePage />} />
-        </Routes>
+        <MovieProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<MovieCatalog />} />
+            <Route path="/favorites" element={<FavoriteMovies />} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+          </Routes>
+        </MovieProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );
