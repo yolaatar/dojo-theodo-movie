@@ -1,12 +1,19 @@
-# cine-project-js
+# Dojo Film par Theodo
 
-Après avoir définis la variable d'environnement "API_KEY", lancer cette commande dans l'inviter de commande:
+## Description
 
-```bash
-(cd frontend && REACT_APP_CODESPACES=$CODESPACES REACT_APP_CODESPACE_NAME=$CODESPACE_NAME npm run start) & (cd backend && npm run start)
+Aujourd’hui, tu vas apprendre à coder ton appli de recommandation de films.
+
+Pour cela, tu vas utiliser React. Ne t’inquiète pas si tu ne connais pas cette techno, le dojo est fait pour avancer à son rythme. N’hésite surtout pas à appeler un intervenant pour qu’il t’aide !
+
+## Technos
+
+- React
+- Use Query
+
+## Installation
+
 ```
-
-ROOKIE: Movie Card
-PRO: Movie List + Infinite scroll
-EXPERT: Movie Detail
-HACKER: Favorie
+pnpm i
+pnpm dev
+```

@@ -4,23 +4,3 @@
   justify-content: center;
   gap: 1rem;
 }
-
-.genre {
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 1px solid white;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.1s;
-}
-
-.selected {
-  border-color: gold;
-  background: gold;
-  color: black;
-}
-
-.genre:hover {
-  background-color: white;
-  color: black;
-}
