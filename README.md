@@ -9,4 +9,5 @@ Après avoir définis la variable d'environnement "API_KEY", lancer cette comman
 ROOKIE: Movie Card
 PRO: Movie List + Infinite scroll
 EXPERT: Movie Detail
+CRAFTMAN: Search + Genre
 HACKER: Favorie

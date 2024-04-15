@@ -1,26 +1,19 @@
 const FAVORITES_KEY = "favorites";
 
 export const getFavorites = (): number[] => {
-  const favoritesString = localStorage.getItem(FAVORITES_KEY);
-  const favorites = favoritesString ? JSON.parse(favoritesString) : [];
-  return favorites;
+  //A DEFINIR HACKER
+  return [];
 };
 
 export const addFavorite = (movieId: number) => {
-  const favorites = getFavorites();
-  if (!favorites.includes(movieId)) {
-    favorites.push(movieId);
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
-  }
+  //A DEFINIR HACKER
 };
 
 export const removeFavorite = (movieId: number) => {
-  const favorites = getFavorites();
-  const newFavorites = favorites.filter((id: number) => id !== movieId);
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites));
+  //A DEFINIR HACKER
 };
 
-export const isMovieFavorite = (movieId: number) => {
-  const favorites = getFavorites();
-  return favorites.includes(movieId);
+export const isMovieFavorite = (movieId: number): boolean => {
+  //A DEFINIR HACKER
+  return false;
 };
