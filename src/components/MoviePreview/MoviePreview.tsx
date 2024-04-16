@@ -6,7 +6,7 @@ const MoviePreview = ({ movie }: { movie: Movie }) => {
   const rating = Math.floor((movie.vote_average * 5) / 10);
 
   const goToMovieDetails = () => {
-    //A DEFINIR EXPERT
+    window.location.href = `/movie/${movie.id}`;
   };
 
   return (
