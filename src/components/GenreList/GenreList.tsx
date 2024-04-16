@@ -9,7 +9,15 @@ const GenreList = () => {
 
   console.log(genres);
 
-  return <div className={styles.genreContainer}></div>;
+  return (
+    <div className={styles.genreContainer}>
+      {genres.map((genre) => (
+        <button key={genre.id} className={`${styles.genre}`}>
+          {genre.name}
+        </button>
+      ))}
+    </div>
+  );
 };
 
 export default GenreList;
