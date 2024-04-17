@@ -5,7 +5,9 @@ import { useMovieContext } from "../../Context/MovieContext";
 
 const GenreList = () => {
   const { data } = useQuery("getGenres", getGenres);
-  const { selectedGenres, setSelectedGenres } = useMovieContext();
+  const { selectedGenres, setSelectedGenres, search } = useMovieContext();
+
+  if (search) return null;
 
   const genres = data || [];
 
