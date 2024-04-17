@@ -24,6 +24,10 @@
   border-top-right-radius: 8px;
 }
 
+.isFavorite {
+  box-shadow: 0 4px 12px gold;
+}
+
 .movieInfo {
   flex-grow: 1;
   display: flex;
