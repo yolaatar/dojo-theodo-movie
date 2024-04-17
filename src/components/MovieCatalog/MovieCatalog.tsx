@@ -6,7 +6,7 @@ import MoviePreview from "../MoviePreview/MoviePreview";
 import { useInfiniteQuery } from "react-query";
 import { getMovies } from "../../services/movieService";
 import { useEffect } from "react";
-import { useMovieContext } from "../../context/MovieContext";
+import { useMovieContext } from "../../Context/MovieContext";
 
 export const MovieCatalog = () => {
   const { selectedGenres } = useMovieContext();

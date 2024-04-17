@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import styles from "./GenreList.module.css";
 import { getGenres } from "../../services/movieService";
-import { useMovieContext } from "../../context/MovieContext";
+import { useMovieContext } from "../../Context/MovieContext";
 
 const GenreList = () => {
   const { data } = useQuery("getGenres", getGenres);
