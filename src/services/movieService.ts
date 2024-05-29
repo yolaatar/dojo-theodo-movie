@@ -12,7 +12,7 @@ const BASE_URL_API = "https://api.themoviedb.org/3";
 const API_KEY = "xxx";
 
 const DEFAULT_SEARCH_PARAMS = {
-  api_key: API_KEY,
+  api_key: "d60b9236200ea914f0975a476ecdbd79",
   language: "fr-FR",
 };
 
